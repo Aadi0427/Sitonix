@@ -32,31 +32,31 @@ document.addEventListener("click", (e) => {
 const cardsData = [
   {
     image: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200',
-    name: 'Briar Martin',
-    handle: '@neilstellar',
-    date: 'April 20, 2025',
-    data: 'nice Work! I am very satisfied.'
+    name: 'Ayush Sharma',
+    handle: '@chiragpanditt',
+    date: 'October 20, 2025',
+    data: 'Sitonix built us a sleek, responsive website that perfectly fits our business needs. Great communication, fast delivery, and solid support throughout.'
   },
   {
     image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200',
-    name: 'Avery Johnson',
-    handle: '@averywrites',
-    date: 'May 10, 2025',
-    data: 'nice Work! I am very satisfied.'
+    name: 'Anurag',
+    handle: '@anurag_423_',
+    date: 'Sep 18, 2025',
+    data: '“Great experience working with Sitonix! They built my portfolio site exactly how I wanted — clean, fast, and mobile-friendly.”'
   },
   {
     image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&auto=format&fit=crop&q=60',
-    name: 'Jordan Lee',
-    handle: '@jordantalks',
-    date: 'June 5, 2025',
-    data: 'Excellent service and support throughout the process.'
+    name: 'Naveen',
+    handle: '@naveen_singh2k6',
+    date: 'Sep 5, 2025',
+    data: '“Super satisfied! Communication was smooth, and they even guided me with SEO basics after finishing the project.”'
   },
   {
     image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=60',
-    name: 'Avery Johnson',
-    handle: '@averywrites',
-    date: 'May 10, 2025',
-    data: 'nice Work! I am very satisfied.'
+    name: 'Aman',
+    handle: '@mr.singh.21_',
+    date: 'Oct 10, 2025',
+    data: '“My startup needed a simple but professional website — Sitonix nailed it! Delivered before the deadline too.”'
   },
 ];
 

@@ -227,11 +227,12 @@
           <div class="flex flex-col gap-10 mt-6">
             <div class="flex items-center gap-4">
               <div
-                class="size-10 p-2 bg-indigo-900/30 border border-indigo-700 rounded-lg"
+                class="w-10 h-10 sm:w-12 sm:h-12 p-2 sm:p-2.5 bg-indigo-900/30 border border-indigo-700 rounded-lg"
               >
                 <img
                   src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/flashEmoji.png"
                   alt=""
+                  class="w-full h-full object-contain"
                 />
               </div>
               <div>
@@ -246,11 +247,12 @@
 
             <div class="flex items-center gap-4">
               <div
-                class="size-10 p-2 bg-indigo-900/30 border border-indigo-700 rounded-lg"
+                class="w-10 h-10 sm:w-12 sm:h-12 p-2 sm:p-2.5 bg-indigo-900/30 border border-indigo-700 rounded-lg"
               >
                 <img
                   src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/colorsEmoji.png"
                   alt=""
+                  class="w-full h-full object-contain"
                 />
               </div>
               <div>
@@ -267,11 +269,12 @@
 
             <div class="flex items-center gap-4">
               <div
-                class="size-10 p-2 bg-indigo-900/30 border border-indigo-700 rounded-lg"
+                class="w-10 h-10 sm:w-12 sm:h-12 p-2 sm:p-2.5 bg-indigo-900/30 border border-indigo-700 rounded-lg"
               >
                 <img
                   src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/puzzelEmoji.png"
                   alt=""
+                  class="w-full h-full object-contain"
                 />
               </div>
               <div>
@@ -287,11 +290,12 @@
 
             <div class="flex items-center gap-4">
               <div
-                class="size-10 p-2 bg-indigo-900/30 border border-indigo-700 rounded-lg"
+                class="w-10 h-10 sm:w-12 sm:h-12 p-2 sm:p-2.5 bg-indigo-900/30 border border-indigo-700 rounded-lg"
               >
                 <img
                   src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/puzzelEmoji.png"
                   alt=""
+                  class="w-full h-full object-contain"
                 />
               </div>
               <div>
@@ -433,8 +437,9 @@
               SEO & Marketing
             </h3>
             <p class="text-sm text-slate-300">
-              On-page SEO, , Social Media Marketing <br />
-              “Boost your site traffic by up to 300%”
+              On-page SEO, , Social Media Marketing “Boost your site traffic by up to 300%
+              ” 
+          
             </p>
           </div>
         </div>
@@ -1276,169 +1281,76 @@ Your website is built with security as a top priority — not an afterthought.
     <!-- ========== End BANNER  ========== -->
 
     <!-- ========== Start FOOTER ========== -->
-    <footer
-      class="bg-[#0f172a] text-gray-400 py-16 px-6 md:px-16 lg:px-24 xl:px-32"
-    >
-      <div class="flex flex-col lg:flex-row justify-center gap-10">
-        <div
-          class="flex flex-col md:flex-row gap-10 justify-between md:gap-[60px] xl:gap-[120px]"
-        >
-          <a href="#" class="flex items-center">
-            <img src="assets/images/logoNav.png" class="h-14" alt="Logo" />
-          </a>
-
+    <footer class="bg-[#0f172a] text-gray-400 py-12 px-6 md:px-16 lg:px-24 xl:px-32">
+      <div class="max-w-7xl mx-auto">
+        <!-- mobile-first grid: stacks on phones -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Logo + description + social (icons untouched) -->
           <div>
-            <p class="text-slate-100 font-semibold text-lg">Product</p>
-            <ul class="mt-2 space-y-2">
-              <li>
-                <a href="/" class="hover:text-gray-100 transition text-sm"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a href="/" class="hover:text-gray-100 transition text-sm"
-                  >Support</a
-                >
-              </li>
-              <li>
-                <a href="/" class="hover:text-gray-100 transition text-sm"
-                  >Pricing</a
-                >
-              </li>
-              <li>
-                <a href="/" class="hover:text-gray-100 transition text-sm"
-                  >Affiliate</a
-                >
-              </li>
+            <a href="#" class="flex items-center mb-4">
+              <img src="assets/images/logoNav.png" class="h-12" alt="Logo" />
+            </a>
+            <p class="text-gray-400 text-sm mb-4">Making every customer feel valued—no matter the size of your audience.</p>
+
+            <div class="flex gap-3">
+              <a href="#" class="p-2 bg-gray-900 rounded-full transition-colors">
+                <img src="assets/social-icons/github.png" class="h-7" alt="" />
+              </a>
+
+              <a href="https://www.instagram.com/sit_onix?igsh=Mmt2cnE3OW1wbDRh" class="p-2 bg-gray-900 rounded-full transition-colors">
+                <img src="assets/social-icons/instagram.png" class="h-7" alt="" />
+              </a>
+
+              <a href="https://wa.me/919315774003?text=Hi%20there!%20I%20want%20to%20know%20more." class="p-2 bg-gray-900 rounded-full transition-colors">
+                <img src="assets/social-icons/whatsapp.png" class="h-7" alt="" />
+              </a>
+
+              <a href="#" class="p-2 bg-gray-900 rounded-full transition-colors">
+                <img src="assets/social-icons/linkedin.png" class="h-7" alt="" />
+              </a>
+
+              <a href="https://youtube.com/@sitonix-v4l?si=pscjkfLtO6Vj16Di" class="p-2 bg-gray-900 rounded-full transition-colors">
+                <img src="assets/social-icons/youtube.png" class="h-7" alt="" />
+              </a>
+            </div>
+          </div>
+
+          <!-- Product -->
+          <div>
+            <p class="text-slate-100 font-semibold text-base mb-3">Product</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/" class="text-gray-400 hover:text-gray-100 transition">Home</a></li>
+              <li><a href="/" class="text-gray-400 hover:text-gray-100 transition">Support</a></li>
+              <li><a href="/" class="text-gray-400 hover:text-gray-100 transition">Pricing</a></li>
+              <li><a href="/" class="text-gray-400 hover:text-gray-100 transition">Affiliate</a></li>
             </ul>
           </div>
 
+          <!-- Resources -->
           <div>
-            <p class="text-slate-100 font-semibold text-lg">Resources</p>
-            <ul class="mt-2 space-y-2">
-              <li>
-                <a href="/" class="hover:text-gray-100 transition text-sm"
-                  >Company</a
-                >
-              </li>
-              <li>
-                <a href="/" class="hover:text-gray-100 transition text-sm"
-                  >Community</a
-                >
-              </li>
-              <li>
-                <a href="/" class="hover:text-gray-100 transition text-sm"
-                  >Careers</a
-                >
-              </li>
-              <li>
-                <a href="/" class="hover:text-gray-100 transition text-sm"
-                  >About</a
-                >
-              </li>
+            <p class="text-slate-100 font-semibold text-base mb-3">Resources</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/" class="text-gray-400 hover:text-gray-100 transition">Company</a></li>
+              <li><a href="/" class="text-gray-400 hover:text-gray-100 transition">Community</a></li>
+              <li><a href="/" class="text-gray-400 hover:text-gray-100 transition">Careers</a></li>
+              <li><a href="/" class="text-gray-400 hover:text-gray-100 transition">About</a></li>
             </ul>
           </div>
 
+          <!-- Legal -->
           <div>
-            <p class="text-slate-100 font-semibold text-lg">Legal</p>
-            <ul class="mt-2 space-y-2">
-              <li>
-                <a href="/" class="hover:text-gray-100 transition text-sm"
-                  >Privacy</a
-                >
-              </li>
-              <li>
-                <a href="/" class="hover:text-gray-100 transition text-sm"
-                  >Terms</a
-                >
-              </li>
-              <li>
-                <a href="/" class="hover:text-gray-100 transition text-sm"
-                  >Cookies</a
-                >
-              </li>
-              <li>
-                <a href="/" class="hover:text-gray-100 transition text-sm"
-                  >License</a
-                >
-              </li>
+            <p class="text-slate-100 font-semibold text-base mb-3">Legal</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/" class="text-gray-400 hover:text-gray-100 transition">Privacy</a></li>
+              <li><a href="/" class="text-gray-400 hover:text-gray-100 transition">Terms</a></li>
+              <li><a href="/" class="text-gray-400 hover:text-gray-100 transition">Cookies</a></li>
+              <li><a href="/" class="text-gray-400 hover:text-gray-100 transition">License</a></li>
             </ul>
           </div>
         </div>
 
-        <div
-          class="flex flex-col items-center lg:items-end text-center lg:text-right gap-4 mt-10 lg:mt-0"
-        >
-          <p class="max-w-xs">
-            Making every customer feel valued—no matter the size of your
-            audience.
-          </p>
-
-          <div class="flex gap-4 mt-3">
-            <a
-              href="#"
-              class="p-2 bg-gray-900 rounded-full hover:bg-blue-500 transition-colors"
-            >
-              <img
-                src="assets/social-icons/github.png"
-                class="h-7 mt-0"
-                alt=""
-                srcset=""
-              />
-            </a>
-
-            <a
-              href="https://www.instagram.com/sit_onix?igsh=Mmt2cnE3OW1wbDRh"
-              class="p-2 bg-gray-900 rounded-full hover:bg-blue-500 transition-colors"
-            >
-              <img
-                src="assets/social-icons/instagram.png"
-                class="h-7 mt-0"
-                alt=""
-                srcset=""
-              />
-            </a>
-
-            <a
-              href="https://wa.me/919315774003?text=Hi%20there!%20I%20want%20to%20know%20more."
-              class="p-2 bg-gray-900 rounded-full hover:bg-blue-500 transition-colors"
-            >
-              <img
-                src="assets/social-icons/whatsapp.png"
-                class="h-7 mt-0"
-                alt=""
-                srcset=""
-              />
-            </a>
-
-            <a
-              href="#"
-              class="p-2 bg-gray-900 rounded-full hover:bg-blue-500 transition-colors"
-            >
-              <img
-                src="assets/social-icons/linkedin.png"
-                class="h-7 mt-0"
-                alt=""
-                srcset=""
-              />
-            </a>
-
-            <a
-              href="https://youtube.com/@sitonix-v4l?si=pscjkfLtO6Vj16Di"
-              class="p-2 bg-gray-900 rounded-full hover:bg-blue-500 transition-colors"
-            >
-              <img
-                src="assets/social-icons/youtube.png"
-                class="h-7 mt-0"
-                alt=""
-                srcset=""
-              />
-            </a>
-          </div>
-
-          <p class="mt-3 text-sm text-gray-500">
-            © 2025 <a href="#">Sitonix</a>
-          </p>
+        <div class="mt-8 pt-6 border-t border-gray-800 text-center text-sm">
+          <p class="text-gray-500">© 2025 <a href="#" class="text-gray-100 hover:text-indigo-400">Sitonix</a>. All rights reserved.</p>
         </div>
       </div>
     </footer>
