@@ -1,258 +1,139 @@
-// AOS Animation
-AOS.init();
+/* ===== MOBILE MENU ===== */
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
 
-//navbar 
+if (menuBtn && mobileMenu) {
+  const setMenu = (open) => {
+    mobileMenu.classList.toggle("open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+  };
+  menuBtn.addEventListener("click", () => setMenu(!mobileMenu.classList.contains("open")));
+  mobileMenu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+}
 
-const menuToggle = document.getElementById("menu-toggle");
-const mobileMenu = document.getElementById("mobile-menu-2");
-const openIcon = document.getElementById("menu-open-icon");
-const closeIcon = document.getElementById("menu-close-icon");
-
-menuToggle.addEventListener("click", (e) => {
-  e.stopPropagation(); // prevent event bubbling
-  mobileMenu.classList.toggle("hidden");
-  openIcon.classList.toggle("hidden");
-  closeIcon.classList.toggle("hidden");
-});
-
-document.addEventListener("click", (e) => {
-  if (
-    !mobileMenu.classList.contains("hidden") &&
-    !mobileMenu.contains(e.target) &&
-    !menuToggle.contains(e.target)
-  ) {
-    mobileMenu.classList.add("hidden");
-    openIcon.classList.remove("hidden");
-    closeIcon.classList.add("hidden");
-  }
-});
-
-// testimonials slider
-
-const cardsData = [
+/* ===== FEATURE CARDS DATA (yahan edit karo) ===== */
+const features = [
   {
-    image: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200',
-    name: 'Ayush Sharma',
-    handle: '@chiragpanditt',
-    date: 'October 20, 2025',
-    data: 'Sitonix built us a sleek, responsive website that perfectly fits our business needs. Great communication, fast delivery, and solid support throughout.'
+    color: "blue", title: "Modern & Creative Designs", text: "Beautiful and user-friendly designs that make your brand stand out.",
+    svg: `<rect x="22" y="14" width="76" height="58" rx="8" fill="#fff"/><path d="M22 22a8 8 0 0 1 8-8h60a8 8 0 0 1 8 8v4H22z" fill="var(--c)"/><circle cx="31" cy="20" r="2" fill="#fff"/><circle cx="38" cy="20" r="2" fill="#fff"/><rect class="a-shim" x="30" y="34" width="34" height="26" rx="4" fill="#9cc4ff"/><rect x="70" y="36" width="20" height="5" rx="2.5" fill="#dce8f6"/><rect x="70" y="46" width="14" height="5" rx="2.5" fill="#e8eff8"/><path class="a-cursor" d="M60 48v20l5-5 4 9 4-2-4-9h7z" fill="#0a1633" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>`
   },
   {
-    image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200',
-    name: 'Anurag',
-    handle: '@anurag_423_',
-    date: 'Sep 18, 2025',
-    data: '“Great experience working with Sitonix! They built my portfolio site exactly how I wanted — clean, fast, and mobile-friendly.”'
+    color: "pink", title: "Tailored to Your Business", text: "Custom solutions designed specifically for your goals and industry.",
+    svg: `<g class="a-pulse"><circle cx="52" cy="46" r="30" fill="#ff4d7e"/><circle cx="52" cy="46" r="21" fill="#fff"/><circle cx="52" cy="46" r="12" fill="#ff4d7e"/><circle cx="52" cy="46" r="4.5" fill="#fff"/></g><g class="a-dart"><path d="M52 46L98 12" stroke="#0a1633" stroke-width="3" stroke-linecap="round"/><path d="M88 6l12 2-2 12z" fill="var(--c)"/></g>`
   },
   {
-    image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&auto=format&fit=crop&q=60',
-    name: 'Naveen',
-    handle: '@naveen_singh2k6',
-    date: 'Sep 5, 2025',
-    data: '“Super satisfied! Communication was smooth, and they even guided me with SEO basics after finishing the project.”'
+    color: "green", title: "Reliable & Secure Websites", text: "Fast, secure and always running, so you can focus on your business.",
+    svg: `<path class="a-pulse" d="M60 8l30 11v24c0 20-13 32-30 39C43 75 30 63 30 43V19z" fill="#14b383"/><path class="a-draw" pathLength="1" d="M46 44l10 10 19-21" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`
   },
   {
-    image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=60',
-    name: 'Aman',
-    handle: '@mr.singh.21_',
-    date: 'Oct 10, 2025',
-    data: '“My startup needed a simple but professional website — Sitonix nailed it! Delivered before the deadline too.”'
+    color: "orange", title: "Ongoing Support", text: "We're here even after launch with continuous support and maintenance.",
+    svg: `<g transform="translate(-14 8)"><path d="M30 52V44a30 30 0 0 1 60 0v8" fill="none" stroke="#173e7b" stroke-width="9" stroke-linecap="round"/><rect x="22" y="48" width="14" height="22" rx="7" fill="#173e7b"/><rect x="84" y="48" width="14" height="22" rx="7" fill="#173e7b"/><path d="M90 70c0 8-8 10-20 10" fill="none" stroke="#173e7b" stroke-width="4" stroke-linecap="round"/></g><g class="a-bob"><rect x="64" y="4" width="46" height="26" rx="13" fill="#fff"/><circle class="a-dot" cx="78" cy="17" r="3.5" fill="var(--c)"/><circle class="a-dot d2" cx="87" cy="17" r="3.5" fill="var(--c)"/><circle class="a-dot d3" cx="96" cy="17" r="3.5" fill="var(--c)"/></g>`
+  },
+  {
+    color: "violet", title: "Fast & High Performance", text: "Optimized websites that load quickly and give a smooth experience.",
+    svg: `<path d="M20 66a40 40 0 0 1 80 0" fill="none" stroke="#ddd5ff" stroke-width="12" stroke-linecap="round"/><path d="M20 66a40 40 0 0 1 56-36.5" fill="none" stroke="var(--c)" stroke-width="12" stroke-linecap="round"/><path class="a-needle" d="M60 66L84 40" stroke="#f04b68" stroke-width="4" stroke-linecap="round"/><circle cx="60" cy="66" r="7" fill="#0a1633"/>`
+  },
+  {
+    color: "sky", title: "SEO & Digital Marketing", text: "Get higher visibility, more traffic and better leads with proven strategies.",
+    svg: `<g fill="var(--c)"><rect class="a-bar" x="24" y="54" width="14" height="22" rx="3"/><rect class="a-bar d2" x="44" y="44" width="14" height="32" rx="3"/><rect class="a-bar d3" x="64" y="32" width="14" height="44" rx="3"/><rect class="a-bar d4" x="84" y="20" width="14" height="56" rx="3"/></g><path class="a-draw" pathLength="1" d="M28 40l22-10 20-8 22-14" fill="none" stroke="#ff9c23" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M82 6h14v14" fill="none" stroke="#ff9c23" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`
+  },
+  {
+    color: "rose", title: "E-commerce Solutions", text: "Powerful online stores to grow your sales and reach more customers.",
+    svg: `<g class="a-bob"><path d="M32 34h56l-4 40a6 6 0 0 1-6 5H42a6 6 0 0 1-6-5z" fill="var(--c)"/><path d="M46 38v-8a14 14 0 0 1 28 0v8" fill="none" stroke="#9b1c3c" stroke-width="5" stroke-linecap="round"/><path d="M50 54c4 6 16 6 20 0" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></g><g class="a-pulse"><circle cx="96" cy="22" r="11" fill="#ffc247"/><text x="96" y="27" text-anchor="middle" font-size="14" font-weight="800" fill="#8a5a00">₹</text></g>`
+  },
+  {
+    color: "gold", title: "Website Maintenance", text: "Keep your website updated, secure and running smoothly, always.",
+    svg: `<rect x="12" y="16" width="66" height="50" rx="7" fill="#fff"/><path d="M12 23a7 7 0 0 1 7-7h52a7 7 0 0 1 7 7v3H12z" fill="#c9d6ea"/><rect x="20" y="36" width="30" height="5" rx="2.5" fill="#e3ebf6"/><rect x="20" y="46" width="22" height="5" rx="2.5" fill="#e3ebf6"/><g class="a-spin"><circle cx="78" cy="56" r="17" fill="none" stroke="var(--c)" stroke-width="9" stroke-dasharray="6.4 4.28"/><circle cx="78" cy="56" r="15" fill="var(--c)"/><circle cx="78" cy="56" r="6" fill="#fff"/></g>`
   },
 ];
 
-const row1 = document.getElementById('row1');
-const row2 = document.getElementById('row2');
+/* ===== CAROUSEL ===== */
+const fc = document.getElementById("fc");
+const track = document.getElementById("fcTrack");
+const dotsWrap = document.getElementById("fcDots");
+const prevBtn = document.getElementById("fcPrev");
+const nextBtn = document.getElementById("fcNext");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const createCard = (card) => `
-      <div class="p-5 rounded-2xl mx-4 shadow-lg hover:shadow-blue-500/30 bg-[#1e293b] transition-all duration-300 w-72 shrink-0">
-        <div class="flex gap-3 items-center">
-          <img class="w-12 h-12 rounded-full border-2 border-blue-400" src="${card.image}" alt="User Image">
-          <div class="flex flex-col">
-            <div class="flex items-center gap-1">
-              <p class="font-semibold text-white">${card.name}</p>
-              <svg class="mt-0.5" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.555.72a4 4 0 0 1-.297.24c-.179.12-.38.202-.59.244a4 4 0 0 1-.38.041c-.48.039-.721.058-.922.129a1.63 1.63 0 0 0-.992.992c-.071.2-.09.441-.129.922a4 4 0 0 1-.041.38 1.6 1.6 0 0 1-.245.59 3 3 0 0 1-.239.297c-.313.368-.47.551-.56.743-.213.444-.213.96 0 1.404.09.192.247.375.56.743.125.146.187.219.24.297.12.179.202.38.244.59.018.093.026.189.041.38.039.48.058.721.129.922.163.464.528.829.992.992.2.071.441.09.922.129.191.015.287.023.38.041.21.042.411.125.59.245.078.052.151.114.297.239.368.313.551.47.743.56.444.213.96.213 1.404 0 .192-.09.375-.247.743-.56.146-.125.219-.187.297-.24.179-.12.38-.202.59-.244a4 4 0 0 1 .38-.041c.48-.039.721-.058.922-.129.464-.163.829-.528.992-.992.071-.2.09-.441.129-.922a4 4 0 0 1 .041-.38c.042-.21.125-.411.245-.59.052-.078.114-.151.239-.297.313-.368.47-.551.56-.743.213-.444.213-.96 0-1.404-.09-.192-.247-.375-.56-.743a4 4 0 0 1-.24-.297 1.6 1.6 0 0 1-.244-.59 3 3 0 0 1-.041-.38c-.039-.48-.058-.721-.129-.922a1.63 1.63 0 0 0-.992-.992c-.2-.071-.441-.09-.922-.129a4 4 0 0 1-.38-.041 1.6 1.6 0 0 1-.59-.245A3 3 0 0 1 7.445.72C7.077.407 6.894.25 6.702.16a1.63 1.63 0 0 0-1.404 0c-.192.09-.375.247-.743.56m4.07 3.998a.488.488 0 0 0-.691-.69l-2.91 2.91-.958-.957a.488.488 0 0 0-.69.69l1.302 1.302c.19.191.5.191.69 0z" fill="#38bdf8" />
-              </svg>
-            </div>
-            <span class="text-xs text-slate-400">${card.handle}</span>
-          </div>
-        </div>
-        <p class="text-sm pt-4 text-gray-300">${card.data}</p>
-      </div>
-    `;
+if (fc && track) {
+  track.innerHTML = features.map((f, i) => `
+    <a class="fcard fcard--${f.color}" href="#services" style="--i:${i}">
+      <div class="fcard__visual"><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false">${f.svg}</svg></div>
+      <div class="fcard__body"><h3>${f.title}</h3><p>${f.text}</p></div>
+      <span class="fcard__arrow" aria-hidden="true">→</span>
+    </a>`).join("");
 
-const renderCards = (target) => {
-  const doubled = [...cardsData, ...cardsData];
-  doubled.forEach(card => target.insertAdjacentHTML('beforeend', createCard(card)));
-};
+  const cards = [...track.children];
+  let pages = 1;
 
-renderCards(row1);
-renderCards(row2);
-
-// ======= Form submission configuration =======
-
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvgvpvkz';
-
-// Toast notification system
-const toast = {
-  element: document.getElementById('toast'),
-  messageEl: document.getElementById('toast-message'),
-  timeoutId: null,
-
-  show(message, type = 'success') {
-    if (this.timeoutId) clearTimeout(this.timeoutId);
-
-    this.messageEl.textContent = message;
-    this.element.className = `fixed bottom-4 right-4 flex items-center p-4 space-x-4 text-sm rounded-lg opacity-0 transition-all duration-300 translate-y-2 pointer-events-none z-50 ${type}`;
-
-    // Force reflow to enable animation
-    this.element.offsetHeight;
-    this.element.classList.add('show');
-
-    this.timeoutId = setTimeout(() => {
-      this.element.classList.remove('show');
-    }, 3000);
-  }
-};
-
-// contact modal behavior
-(function () {
-  const openBtns = document.querySelectorAll('.open-contact-modal');
-  const modal = document.getElementById('contact-modal');
-  const overlay = document.getElementById('contact-modal-overlay');
-  const closeBtn = document.getElementById('contact-modal-close');
-  const cancelBtn = document.getElementById('contact-modal-cancel');
-  const form = document.getElementById('contact-modal-form');
-
-  if (!modal) return; // nothing to do
-
-  const show = () => {
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    // add small animation class to inner dialog
-    const dialog = modal.querySelector('> div.relative');
-    if (dialog) dialog.classList.add('modal-fade-in');
-    // focus first field
-    const first = modal.querySelector('input, textarea');
-    if (first) first.focus();
+  const step = () => {
+    const w = cards[0].getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    const perView = Math.max(1, Math.floor((track.clientWidth + gap) / (w + gap) + 0.01));
+    return { distance: perView * (w + gap), perView };
   };
 
-  const hide = () => {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
+  const maxScroll = () => track.scrollWidth - track.clientWidth;
+  const goTo = (left) => track.scrollTo({ left, behavior: reduceMotion ? "auto" : "smooth" });
+
+  const buildDots = () => {
+    pages = Math.max(1, Math.ceil(cards.length / step().perView));
+    dotsWrap.innerHTML = Array.from({ length: pages }, (_, i) =>
+      `<button class="fc__dot" data-i="${i}" aria-label="Go to page ${i + 1}"></button>`).join("");
+    updateDots();
   };
 
-  openBtns.forEach(b => b.addEventListener('click', (e) => { e.preventDefault(); show(); }));
-
-  if (overlay) overlay.addEventListener('click', hide);
-  if (closeBtn) closeBtn.addEventListener('click', hide);
-  if (cancelBtn) cancelBtn.addEventListener('click', hide);
-
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) hide(); });
-
-  const submitToEndpoint = async (frm) => {
-    if (!FORMSPREE_ENDPOINT || FORMSPREE_ENDPOINT.includes('yourFormId')) {
-      toast.show('Please set up the form endpoint first.', 'error');
-      return false;
-    }
-
-    const data = new FormData(frm);
-    const payload = Object.fromEntries(data.entries());
-
-    // Basic validation
-    const requiredFields = ['name', 'email', 'phone', 'service', 'message'];
-    for (const field of requiredFields) {
-      if (!payload[field] || payload[field].trim() === '') {
-        toast.show(`Please fill in your ${field}.`, 'error');
-        const input = frm.querySelector(`[name="${field}"]`);
-        if (input) input.focus();
-        return false;
-      }
-    }
-
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-
-      if (res.ok) {
-        return true;
-      }
-      // attempt to parse error
-      const err = await res.json().catch(() => null);
-      console.error('Submit error', err);
-      return false;
-    } catch (err) {
-      console.error('Network error submitting form', err);
-      return false;
-    }
+  const currentPage = () => {
+    const m = maxScroll();
+    return m <= 0 ? 0 : Math.round((track.scrollLeft / m) * (pages - 1));
   };
 
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const ok = await submitToEndpoint(e.target);
-      if (ok) {
-        e.target.reset();
-        hide();
-        toast.show('Thank you! We will contact you soon.');
-      }
-    });
+  function updateDots() {
+    const p = currentPage();
+    dotsWrap.querySelectorAll(".fc__dot").forEach((d, i) => d.classList.toggle("active", i === p));
   }
 
-  // Also wire the contact section form (page form) to the same endpoint
-  const pageForm = document.getElementById('contact-section-form');
-  if (pageForm) {
-    pageForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const ok = await submitToEndpoint(e.target);
-      if (ok) {
-        e.target.reset();
-        toast.show('Thank you! We will contact you soon.');
-        // Scroll form into view to show it's reset
-        pageForm.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  }
-})();
+  const next = () => (track.scrollLeft >= maxScroll() - 4 ? goTo(0) : goTo(track.scrollLeft + step().distance));
+  const prev = () => (track.scrollLeft <= 4 ? goTo(maxScroll()) : goTo(track.scrollLeft - step().distance));
 
-function updateImage() {
-  const img = document.getElementById("responsive-img");
-  if (window.innerWidth < 600) {
-    img.src = "assets/images/heropic2.png";
-  } else {
-    img.src = "assets/images/heropic.png";
+  nextBtn.addEventListener("click", next);
+  prevBtn.addEventListener("click", prev);
+  dotsWrap.addEventListener("click", (e) => {
+    const dot = e.target.closest(".fc__dot");
+    if (dot) goTo(pages === 1 ? 0 : (Number(dot.dataset.i) / (pages - 1)) * maxScroll());
+  });
+  track.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") { e.preventDefault(); next(); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
+  });
+
+  let frame = null;
+  track.addEventListener("scroll", () => {
+    if (frame) return;
+    frame = requestAnimationFrame(() => { frame = null; updateDots(); });
+  }, { passive: true });
+
+  window.addEventListener("resize", buildDots);
+  buildDots();
+
+  /* Reveal + autoplay (hover/focus/touch/hidden tab/off-screen pe pause) */
+  let inView = false, hovering = false, focused = false, touching = false;
+  new IntersectionObserver(([entry]) => {
+    inView = entry.isIntersecting;
+    if (inView) fc.classList.add("is-visible");
+  }, { threshold: 0.2 }).observe(fc);
+
+  fc.addEventListener("pointerenter", () => { hovering = true; });
+  fc.addEventListener("pointerleave", () => { hovering = false; });
+  fc.addEventListener("focusin", () => { focused = true; });
+  fc.addEventListener("focusout", () => { focused = false; });
+  track.addEventListener("touchstart", () => { touching = true; }, { passive: true });
+  track.addEventListener("touchend", () => { setTimeout(() => { touching = false; }, 2500); }, { passive: true });
+
+  if (!reduceMotion) {
+    setInterval(() => {
+      if (inView && !hovering && !focused && !touching && !document.hidden) next();
+    }, 4500);
   }
 }
-
-// Run once on load
-updateImage();
-
-// Run every time the screen resizes
-window.addEventListener("resize", updateImage);
-
-const faqItems = document.querySelectorAll('.faq-item');
-
-faqItems.forEach(item => {
-  const question = item.querySelector('.faq-question');
-
-  question.addEventListener('click', () => {
-    const isActive = item.classList.contains('active');
-
-    // Close all items
-    faqItems.forEach(i => i.classList.remove('active'));
-
-    // Open clicked item if it wasn't active
-    if (!isActive) {
-      item.classList.add('active');
-    }
-  });
-});
-
-// Optional: Open first item by default
-faqItems[0].classList.add('active');
